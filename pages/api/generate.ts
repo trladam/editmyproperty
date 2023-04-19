@@ -21,6 +21,8 @@ export default async function handler(
   req: ExtendedNextApiRequest,
   res: NextApiResponse<GenerateResponseData | string>
 ) {
+
+  console.log('!!!!',);
   // Check if user is logged in
   const session = await getServerSession(req, res, authOptions);
   if (!session || !session.user) {
@@ -38,9 +40,9 @@ export default async function handler(
   });
 
   // Check if user has any credits left
-  if (user?.credits === 0) {
-    return res.status(400).json(`You have no generations left`);
-  }
+  // if (user?.credits === 0) {
+  //   return res.status(400).json(`You have no generations left`);
+  // }
 
   // If they have credits, decrease their credits by one and continue
   await prisma.user.update({
@@ -54,7 +56,9 @@ export default async function handler(
     },
   });
 
+  console.log("1", 1);
   try {
+    console.log("2", 2);
     const { imageUrl, theme, room } = req.body;
     const prompt =
       room === "Gaming Room"
@@ -62,29 +66,31 @@ export default async function handler(
         : `a ${theme.toLowerCase()} ${room.toLowerCase()}`;
 
     // POST request to Replicate to start the image restoration generation process
+    const params = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Token " + process.env.REPLICATE_API_KEY,
+      },
+      body: JSON.stringify({
+        version:
+          "d55b9f2dcfb156089686b8f767776d5b61b007187a4e1e611881818098100fbb",
+        input: {
+          image: imageUrl,
+          structure: "hough",
+          prompt: prompt,
+          scale: 9,
+          a_prompt:
+            "best quality, photo from Pinterest, interior, cinematic photo, ultra-detailed, ultra-realistic, award-winning, interior design, natural lighting",
+          n_prompt:
+            "longbody, lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality",
+        },
+      }),
+    };
+    console.log("params", params);
     let startResponse = await fetch(
       "https://api.replicate.com/v1/predictions",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Token " + process.env.REPLICATE_API_KEY,
-        },
-        body: JSON.stringify({
-          version:
-            "d55b9f2dcfb156089686b8f767776d5b61b007187a4e1e611881818098100fbb",
-          input: {
-            image: imageUrl,
-            structure: "hough",
-            prompt: prompt,
-            scale: 9,
-            a_prompt:
-              "best quality, photo from Pinterest, interior, cinematic photo, ultra-detailed, ultra-realistic, award-winning, interior design, natural lighting",
-            n_prompt:
-              "longbody, lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality",
-          },
-        }),
-      }
+      params
     );
 
     let jsonStartResponse = await startResponse.json();
