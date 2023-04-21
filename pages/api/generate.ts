@@ -72,14 +72,14 @@ export default async function handler(
         },
         body: JSON.stringify({
           version:
-            "d55b9f2dcfb156089686b8f767776d5b61b007187a4e1e611881818098100fbb",
+            "854e8727697a057c525cdb45ab037f64ecca770a1769cc52287c2e56472a247b",
           input: {
             image: imageUrl,
             structure: "hough",
             prompt: prompt,
             scale: 9,
-            a_prompt:
-              "best quality, photo from Pinterest, interior, cinematic photo, ultra-detailed, ultra-realistic, award-winning, interior design, natural lighting",
+            a_prompt: "a cheerful modernist bedroom",
+            //"best quality, photo from Pinterest, interior, cinematic photo, ultra-detailed, ultra-realistic, award-winning, interior design, natural lighting",
             n_prompt:
               "longbody, lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality",
           },
@@ -107,7 +107,8 @@ export default async function handler(
       let jsonFinalResponse = await finalResponse.json();
 
       if (jsonFinalResponse.status === "succeeded") {
-        generatedImage = jsonFinalResponse.output[0] as string;
+        //generatedImage = jsonFinalResponse.output[0] as string;
+        generatedImage = jsonFinalResponse.output[1] as string;
       } else if (jsonFinalResponse.status === "failed") {
         break;
       } else {
