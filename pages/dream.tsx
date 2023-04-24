@@ -230,25 +230,6 @@ const Home: NextPage = () => {
                         alt="1 icon"
                       />
                       <p className="text-left font-medium">
-                        Choose your room theme.
-                      </p>
-                    </div>
-                    <DropDown
-                      theme={theme}
-                      // @ts-ignore
-                      setTheme={(newTheme) => setTheme(newTheme)}
-                      themes={themes}
-                    />
-                  </div>
-                  <div className="space-y-4 w-full max-w-sm">
-                    <div className="flex mt-10 items-center space-x-3">
-                      <Image
-                        src="/number-2-white.svg"
-                        width={30}
-                        height={30}
-                        alt="1 icon"
-                      />
-                      <p className="text-left font-medium">
                         Choose your room type.
                       </p>
                     </div>
@@ -259,6 +240,26 @@ const Home: NextPage = () => {
                       themes={rooms}
                     />
                   </div>
+                  <div className="space-y-4 w-full max-w-sm">
+                    <div className="flex mt-10 items-center space-x-3">
+                      <Image
+                        src="/number-2-white.svg"
+                        width={30}
+                        height={30}
+                        alt="2 icon"
+                      />
+                      <p className="text-left font-medium">
+                        Choose your room theme.
+                      </p>
+                    </div>
+                    <DropDown
+                      theme={theme}
+                      // @ts-ignore
+                      setTheme={(newTheme) => setTheme(newTheme)}
+                      themes={themes}
+                    />
+                  </div>
+
                   <div className="mt-4 w-full max-w-sm">
                     <div className="flex mt-6 w-96 items-center space-x-3">
                       <Image
