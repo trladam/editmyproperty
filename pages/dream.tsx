@@ -230,7 +230,7 @@ const Home: NextPage = () => {
                         alt="1 icon"
                       />
                       <p className="text-left font-medium">
-                        Choose your room type.
+                        Choose your existing room type.
                       </p>
                     </div>
                     <DropDown
@@ -249,7 +249,7 @@ const Home: NextPage = () => {
                         alt="2 icon"
                       />
                       <p className="text-left font-medium">
-                        Choose your room theme.
+                        Choose your desired theme.
                       </p>
                     </div>
                     <DropDown
