@@ -62,11 +62,22 @@ export default async function handler(
         ? "a video gaming room"
         : `a ${theme.toLowerCase()} ${room.toLowerCase()}`;
 
-    if (["Coffee Shop", "Salon", "Restaurant"].includes(room)) {
-      prompt = `high resolution photography of a ${theme.toLowerCase()} ${room.toLowerCase()} interior with wooden floor, beige blue salmon pastel, sun light, contrast, realistic artstation concept art, hyperdetailed, ultradetail, cinematic 8k, architectural rendering , unreal engine 5, rtx, volumetric light, cozy atmosphere,`;
+    if (
+      room === "Retail unit" &&
+      [
+        "Minimalist white coffee shop",
+        "Minimalist white salon",
+        "Minimalist white restaurant",
+      ].includes(theme)
+    ) {
+      prompt = `high resolution photography of a ${room.toLowerCase()} interior with wooden floor, beige blue salmon pastel, sun light, contrast, realistic artstation concept art, hyperdetailed, ultradetail, cinematic 8k, architectural rendering , unreal engine 5, rtx, volumetric light, cozy atmosphere,`;
     }
 
-    // POST request to Replicate to start the image restoration generation process
+    // console.log("theme=", theme);
+    // console.log("room=", room);
+    // console.log("propmpt=", prompt);
+    //
+
     let startResponse = await fetch(
       "https://api.replicate.com/v1/predictions",
       {
@@ -148,6 +159,7 @@ export default async function handler(
           }
         : "Failed to restore image"
     );
+    //** */
   } catch (error) {
     // Increment their credit if something went wrong
     await prisma.user.update({

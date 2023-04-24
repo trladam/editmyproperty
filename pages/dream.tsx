@@ -39,7 +39,7 @@ const Home: NextPage = () => {
   const [error, setError] = useState<string | null>(null);
   const [photoName, setPhotoName] = useState<string | null>(null);
   const [theme, setTheme] = useState<themeType>("Modern");
-  const [room, setRoom] = useState<roomType>("Living Room");
+  const [room, setRoom] = useState<roomType>(rooms[0]);
 
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, mutate } = useSWR("/api/remaining", fetcher);
@@ -156,7 +156,7 @@ const Home: NextPage = () => {
           </a>
         )}
         <h1 className="mx-auto max-w-4xl font-display text-4xl font-bold tracking-normal text-slate-100 sm:text-6xl mb-5">
-          Generate your <span className="text-blue-600">dream</span> room
+          Generate your room
         </h1>
         {status === "authenticated" && data && !restoredImage && (
           <p className="text-gray-400">
