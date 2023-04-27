@@ -73,11 +73,6 @@ export default async function handler(
       prompt = `high resolution photography of a ${room.toLowerCase()} interior with wooden floor, beige blue salmon pastel, sun light, contrast, realistic artstation concept art, hyperdetailed, ultradetail, cinematic 8k, architectural rendering , unreal engine 5, rtx, volumetric light, cozy atmosphere,`;
     }
 
-    // console.log("theme=", theme);
-    // console.log("room=", room);
-    // console.log("propmpt=", prompt);
-    //
-
     let startResponse = await fetch(
       "https://api.replicate.com/v1/predictions",
       {

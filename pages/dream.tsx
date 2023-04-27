@@ -54,14 +54,14 @@ const Home: NextPage = () => {
       colors: {
         primary: "#2563EB", // Primary buttons & links
         error: "#d23f4d", // Error messages
-        shade100: "#fff", // Standard text
-        shade200: "#fffe", // Secondary button text
-        shade300: "#fffd", // Secondary button text (hover)
-        shade400: "#fffc", // Welcome text
-        shade500: "#fff9", // Modal close button
-        shade600: "#fff7", // Border
-        shade700: "#fff2", // Progress indicator background
-        shade800: "#fff1", // File item background
+        shade100: "#000", // Standard text
+        shade200: "#000", // Secondary button text
+        shade300: "#000", // Secondary button text (hover)
+        shade400: "#000", // Welcome text
+        shade500: "#000", // Modal close button
+        shade600: "#ccc", // Border
+        shade700: "#eee", // Progress indicator background
+        shade800: "#eee", // File item background
         shade900: "#ffff", // Various (draggable crop buttons, etc.)
       },
     },
@@ -137,10 +137,10 @@ const Home: NextPage = () => {
         {status === "authenticated" ? (
           <Link
             href="/buy-credits"
-            className="border border-gray-700 rounded-2xl py-2 px-4 text-gray-400 text-sm my-6 duration-300 ease-in-out hover:text-gray-300 hover:scale-105 transition"
+            className="border border-black-700 rounded-2xl py-2 px-4 text-black-400 text-sm my-6 duration-300 ease-in-out hover:text-black-300 hover:scale-105 transition"
           >
             Pricing is now available.{" "}
-            <span className="font-semibold text-gray-200">Click here</span> to
+            <span className="font-semibold text-black-200">Click here</span> to
             buy credits!
           </Link>
         ) : (
@@ -148,10 +148,12 @@ const Home: NextPage = () => {
             href="https://twitter.com/nutlope/status/1635674124738523139?cxt=HHwWhsCz1ei8irMtAAAA"
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-gray-700 rounded-2xl py-2 px-4 text-gray-400 text-sm my-6 duration-300 ease-in-out hover:text-gray-300 transition"
+            className="border border-black-700 rounded-2xl py-2 px-4 text-black-400 text-sm my-6 duration-300 ease-in-out hover:text-black-300 transition"
           >
             Over{" "}
-            <span className="font-semibold text-gray-200">1 million users</span>{" "}
+            <span className="font-semibold text-black-200">
+              1 million users
+            </span>{" "}
             have used roomGPT so far
           </a>
         )}
@@ -159,9 +161,9 @@ const Home: NextPage = () => {
           Generate your room
         </h1>
         {status === "authenticated" && data && !restoredImage && (
-          <p className="text-gray-400">
+          <p className="text-black-400">
             You have{" "}
-            <span className="font-semibold text-gray-300">
+            <span className="font-semibold text-black-300">
               {data.remainingGenerations}{" "}
               {data?.remainingGenerations > 1 ? "credits" : "credit"}
             </span>{" "}
@@ -171,7 +173,7 @@ const Home: NextPage = () => {
                 Buy more credits{" "}
                 <Link
                   href="/buy-credits"
-                  className="font-semibold text-gray-300 underline underline-offset-2 hover:text-gray-200 transition"
+                  className="font-semibold text-black-300 underline underline-offset-2 hover:text-black-200 transition"
                 >
                   here
                 </Link>
@@ -278,7 +280,7 @@ const Home: NextPage = () => {
               ) : (
                 !originalPhoto && (
                   <div className="h-[250px] flex flex-col items-center space-y-6 max-w-[670px] -mt-8">
-                    <div className="max-w-xl text-gray-300">
+                    <div className="max-w-xl text-black-300">
                       Sign in below with Google to create a free account and
                       redesign your room today. You will get 3 generations for
                       free.

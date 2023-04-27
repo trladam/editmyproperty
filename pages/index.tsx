@@ -20,15 +20,15 @@ const Home: NextPage = () => {
           href="https://vercel.fyi/roomGPT"
           target="_blank"
           rel="noreferrer"
-          className="border border-gray-700 rounded-lg py-2 px-4 text-gray-400 text-sm mb-5 transition duration-300 ease-in-out hover:text-gray-300"
+          className="border border-gray-700 rounded-lg py-2 px-4 text-black-400 text-sm mb-5 transition duration-300 ease-in-out hover:text-black-300"
         >
           Clone and deploy your own with{" "}
           <span className="text-blue-600">Vercel</span>
         </a>
-        <h1 className="mx-auto max-w-4xl font-display text-5xl font-bold tracking-normal text-gray-300 sm:text-7xl">
+        <h1 className="mx-auto max-w-4xl font-display text-5xl font-bold tracking-normal text-black-300 sm:text-7xl">
           Highlight a properties potential using AI.
         </h1>
-        <h2 className="mx-auto mt-12 max-w-xl text-lg sm:text-gray-400  text-gray-500 leading-7">
+        <h2 className="mx-auto mt-12 max-w-xl text-lg sm:text-black-400  text-black-500 leading-7">
           Take a picture of your room and see how your room looks in different
           themes. Remodel your room today.
         </h2>

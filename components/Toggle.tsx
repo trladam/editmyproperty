@@ -19,7 +19,7 @@ export default function Toggle({
       <div className="flex items-center">
         <span
           className={`text-sm mr-3 font-medium ${
-            !sideBySide ? "text-white" : "text-gray-500"
+            !sideBySide ? "text-white" : "text-black-500"
           }`}
         >
           Side by Side
@@ -43,7 +43,7 @@ export default function Toggle({
         <Switch.Label as="span" className="ml-3">
           <span
             className={`text-sm font-medium ${
-              sideBySide ? "text-white" : "text-gray-500"
+              sideBySide ? "text-white" : "text-black-500"
             } `}
           >
             Compare

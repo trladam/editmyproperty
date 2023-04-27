@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    /* For rgb(255 115 179 / <alpha-value>) */
+    --color-primary: 255 115 179;
+
+    /* For hsl(198deg 93% 60% / <alpha-value>) */
+    --color-primary: 198deg 93% 60%;
+
+    /* For rgba(255, 115, 179, <alpha-value>) */
+    --color-primary: 255, 115, 179;
+  }
+}
+
 @media (min-width: 400px) {
   .background-gradient::before {
     background: radial-gradient(
@@ -16,4 +29,15 @@
     transform: scale(1);
     pointer-events: none;
   }
+}
+
+h1 {
+  margin: 0 auto 1.7rem;
+  font-size: clamp(2rem, 1rem + 3vw, 4rem);
+  font-weight: 700;
+  background: linear-gradient(160deg, #0d1633 18.91%, #06f 82.02%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: unset !important;
 }

@@ -26,7 +26,7 @@ export default function Dashboard({ rooms }: { rooms: Room[] }) {
           View your <span className="text-blue-600">room</span> generations
         </h1>
         {rooms.length === 0 ? (
-          <p className="text-gray-300">
+          <p className="text-black-300">
             You have no room generations. Generate one{" "}
             <Link
               href="/dream"
@@ -36,7 +36,7 @@ export default function Dashboard({ rooms }: { rooms: Room[] }) {
             </Link>
           </p>
         ) : (
-          <p className="text-gray-300">
+          <p className="text-black-300">
             Browse through your previous room generations below. Any feedback?
             Email hassan@roomgpt.io
           </p>
