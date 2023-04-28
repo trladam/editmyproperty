@@ -13,7 +13,10 @@ export default function Footer() {
           The Requirement List{" "}
         </a>
       </div>
-      <div className="flex space-x-4 pb-4 sm:pb-0"></div>
+      <div className="flex flex-col space-x-4 pb-4 sm:pb-0 justify-between items-center">
+        <div>Trusted by the leading property consultancies in the UK:</div>
+        <img src="/logos.png" alt="" style={{ maxWidth: 200 }} />
+      </div>
     </footer>
   );
 }

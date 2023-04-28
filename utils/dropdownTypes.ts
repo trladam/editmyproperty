@@ -11,16 +11,14 @@ export type themeType =
   | "Minimalist white restaurant";
 
 export const themes: themeType[] = [
-  "Modern",
-  "Minimalist",
-  "Professional",
-  "Tropical",
-  "Vintage",
-  "Industrial",
-  "Neoclassic",
   "Minimalist white coffee shop",
   "Minimalist white salon",
   "Minimalist white restaurant",
+  "Modern",
+  "Minimalist",
+  "Professional",
+  "Industrial",
+  "Neoclassic",
 ];
 
 export type roomType =

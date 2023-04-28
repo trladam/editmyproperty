@@ -4,13 +4,13 @@ class MyDocument extends Document {
   render() {
     let description = "Generate your dream room in seconds.";
     let ogimage = "https://www.roomgpt.io/og-image.png";
-    let sitename = "roomGPT.io";
-    let title = "Dream Room Generator";
+    let sitename = "www.editmyproperty.co.uk";
+    let title = "Room Generator";
 
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href="/fav.gif" type="image/gif"></link>
+          <link rel="icon" href="/fav.png" type="image/gif"></link>
           <meta name="description" content={description} />
           <meta property="og:site_name" content={sitename} />
           <meta property="og:description" content={description} />

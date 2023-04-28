@@ -136,26 +136,27 @@ const Home: NextPage = () => {
       <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-4 sm:mb-0 mb-8">
         {status === "authenticated" ? (
           <Link
-            href="/buy-credits"
+            href="/signup"
             className="border border-black-700 rounded-2xl py-2 px-4 text-black-400 text-sm my-6 duration-300 ease-in-out hover:text-black-300 hover:scale-105 transition"
           >
             Pricing is now available.{" "}
             <span className="font-semibold text-black-200">Click here</span> to
-            buy credits!
+            generate more rooms!
           </Link>
         ) : (
-          <a
-            href="https://twitter.com/nutlope/status/1635674124738523139?cxt=HHwWhsCz1ei8irMtAAAA"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border border-black-700 rounded-2xl py-2 px-4 text-black-400 text-sm my-6 duration-300 ease-in-out hover:text-black-300 transition"
-          >
-            Over{" "}
-            <span className="font-semibold text-black-200">
-              1 million users
-            </span>{" "}
-            have used roomGPT so far
-          </a>
+          // <a
+          //   href="https://twitter.com/nutlope/status/1635674124738523139?cxt=HHwWhsCz1ei8irMtAAAA"
+          //   target="_blank"
+          //   rel="noopener noreferrer"
+          //   className="border border-black-700 rounded-2xl py-2 px-4 text-black-400 text-sm my-6 duration-300 ease-in-out hover:text-black-300 transition"
+          // >
+          //   Over{" "}
+          //   <span className="font-semibold text-black-200">
+          //     1 million users
+          //   </span>{" "}
+          //   have used roomGPT so far
+          // </a>
+          <></>
         )}
         <h1 className="mx-auto max-w-4xl font-display text-4xl font-bold tracking-normal text-slate-100 sm:text-6xl mb-5">
           Generate your room
@@ -172,7 +173,7 @@ const Home: NextPage = () => {
               <span>
                 Buy more credits{" "}
                 <Link
-                  href="/buy-credits"
+                  href="/signup"
                   className="font-semibold text-black-300 underline underline-offset-2 hover:text-black-200 transition"
                 >
                   here
@@ -281,9 +282,8 @@ const Home: NextPage = () => {
                 !originalPhoto && (
                   <div className="h-[250px] flex flex-col items-center space-y-6 max-w-[670px] -mt-8">
                     <div className="max-w-xl text-black-300">
-                      Sign in below with Google to create a free account and
-                      redesign your room today. You will get 3 generations for
-                      free.
+                      Sign in below to create a free account and redesign your
+                      room today. You will get 3 generations for free.
                     </div>
                     <button
                       onClick={() => signIn("google")}
@@ -296,6 +296,18 @@ const Home: NextPage = () => {
                         alt="google's logo"
                       />
                       <span>Sign in with Google</span>
+                    </button>
+                    <button
+                      onClick={() => signIn("linkedin")}
+                      className="bg-gray-200 text-black font-semibold py-3 px-6 rounded-2xl flex items-center space-x-2"
+                    >
+                      <Image
+                        src="/linkedin.png"
+                        width={20}
+                        height={20}
+                        alt="google's logo"
+                      />
+                      <span>Sign in with LinkedIn</span>
                     </button>
                   </div>
                 )

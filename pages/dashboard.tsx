@@ -29,7 +29,7 @@ export default function Dashboard({ rooms }: { rooms: Room[] }) {
           <p className="text-black-300">
             You have no room generations. Generate one{" "}
             <Link
-              href="/dream"
+              href="/design"
               className="text-blue-600 underline underline-offset-2"
             >
               here
@@ -38,7 +38,7 @@ export default function Dashboard({ rooms }: { rooms: Room[] }) {
         ) : (
           <p className="text-black-300">
             Browse through your previous room generations below. Any feedback?
-            Email hassan@roomgpt.io
+            Email info@therequirementlist.com
           </p>
         )}
         {rooms.map((room) => (
