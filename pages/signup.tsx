@@ -14,7 +14,7 @@ export default function Pricing() {
   return (
     <div className="flex mx-auto max-w-7xl overflow-visible flex-col items-center justify-center py-2 min-h-screen">
       <Head>
-        <title>Buy RoomGPT Credits</title>
+        <title>Buy Credits</title>
       </Head>
       <Script src="https://js.stripe.com/v3/pricing-table.js" />
       <Script src="https://cdn.paritydeals.com/banner.js" />
@@ -25,7 +25,7 @@ export default function Pricing() {
       <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-12 sm:mb-0 mb-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-              <h1>Buy RoomGPT Credits</h1>
+            <h1>Buy Credits</h1>
           </div>
         </div>
         <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-black-500 mb-10">
