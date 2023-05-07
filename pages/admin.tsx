@@ -1,18 +1,16 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import { useSession } from "next-auth/react";
-import Link from "next/link";
 import Footer from "../components/Footer";
 import prisma from "../lib/prismadb";
 import { User } from "@prisma/client";
-import { RoomGeneration } from "../components/RoomGenerator";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]";
 import { UsersList } from "../components/UserList";
 
 export default function Dashboard({ users }: { users: User[] }) {
   const { data: session } = useSession();
-  console.log("users", users);
+
   return (
     <div className="flex max-w-6xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
       <Head>
@@ -34,11 +32,19 @@ export default function Dashboard({ users }: { users: User[] }) {
 
 export async function getServerSideProps(ctx: any) {
   const session = await getServerSession(ctx.req, ctx.res, authOptions);
-  if (!session || !session.user) {
-    return { props: { rooms: [] } };
-  }
+  const adminEmails = [`benderlio@gmail.com`, `adamcrooks3@googlemail.com`];
 
-  //   console.log("prisma", prisma);
+  console.log("session", session);
+  if (
+    !session ||
+    !session.user ||
+    !session.user.email ||
+    !adminEmails.includes(session.user.email)
+  ) {
+    return {
+      notFound: true,
+    };
+  }
 
   let users = await prisma.user.findMany({
     // where: {
