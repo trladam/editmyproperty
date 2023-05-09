@@ -14,7 +14,13 @@ import Toggle from "../components/Toggle";
 import appendNewToName from "../utils/appendNewToName";
 import downloadPhoto from "../utils/downloadPhoto";
 import DropDown from "../components/DropDown";
-import { roomType, rooms, themeType, themes } from "../utils/dropdownTypes";
+import {
+  roomType,
+  rooms,
+  themeType,
+  themes,
+  exterior,
+} from "../utils/dropdownTypes";
 import { GenerateResponseData } from "./api/generate";
 import { useSession, signIn } from "next-auth/react";
 import useSWR from "swr";
@@ -40,7 +46,8 @@ const Home: NextPage = () => {
   const [photoName, setPhotoName] = useState<string | null>(null);
   const [theme, setTheme] = useState<themeType>("Modern");
   const [room, setRoom] = useState<roomType>(rooms[0]);
-
+  const [type, setType] = useState<string>("interior");
+  console.log("type", type);
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, mutate } = useSWR("/api/remaining", fetcher);
   const { data: session, status } = useSession();
@@ -118,6 +125,37 @@ const Home: NextPage = () => {
 
   const router = useRouter();
 
+  const Type = ({ type }: { type: string }) => {
+    const interiorBGColor = type === "interior" ? "bg-active" : "bg-inactive";
+    const exteriorBGColor = type === "exterior" ? "bg-active" : "bg-inactive";
+
+    return (
+      <div
+        className="inline-flex mb-5 rounded-md shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+        role="group"
+      >
+        <button
+          type="button"
+          className={`inline-block rounded-l ${interiorBGColor} px-6 pb-2 pt-2.5 text-base font-medium uppercase leading-normal text-black transition duration-150 ease-in-out hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:ring-0 active:bg-primary-700`}
+          data-te-ripple-init
+          data-te-ripple-color="light"
+          onClick={() => setType("interior")}
+        >
+          INTERIOR
+        </button>
+        <button
+          type="button"
+          className={`inline-block rounded-r ${exteriorBGColor} px-6 pb-2 pt-2.5 text-base font-medium uppercase leading-normal text-black transition duration-150 ease-in-out hover:bg-primary-600 focus:bg-primary-600 focus:outline-none focus:ring-0 active:bg-primary-700`}
+          data-te-ripple-init
+          data-te-ripple-color="light"
+          onClick={() => setType("exterior")}
+        >
+          EXTERIOR
+        </button>
+      </div>
+    );
+  };
+
   useEffect(() => {
     if (router.query.success === "true") {
       toast.success("Payment successful!");
@@ -134,7 +172,7 @@ const Home: NextPage = () => {
         email={session?.user?.email || undefined}
       />
       <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-4 sm:mb-0 mb-8">
-        {status === "authenticated" ? (
+        {/* {status === "authenticated" ? (
           <Link
             href="/signup"
             className="border border-black-700 rounded-2xl py-2 px-4 text-black-400 text-sm my-6 duration-300 ease-in-out hover:text-black-300 hover:scale-105 transition"
@@ -157,10 +195,11 @@ const Home: NextPage = () => {
           //   have used roomGPT so far
           // </a>
           <></>
-        )}
+        )} */}
         <h1 className="mx-auto max-w-4xl font-display text-4xl font-bold tracking-normal text-slate-100 sm:text-6xl mb-5">
           Generate your room
         </h1>
+        <Type type={type} />
         {status === "authenticated" && data && !restoredImage && (
           <p className="text-black-400">
             You have{" "}
@@ -233,7 +272,8 @@ const Home: NextPage = () => {
                         alt="1 icon"
                       />
                       <p className="text-left font-medium">
-                        Choose your existing room type.
+                        Choose your existing{" "}
+                        {type === "interior" ? `room` : `property`} type.
                       </p>
                     </div>
                     <DropDown
@@ -259,7 +299,7 @@ const Home: NextPage = () => {
                       theme={theme}
                       // @ts-ignore
                       setTheme={(newTheme) => setTheme(newTheme)}
-                      themes={themes}
+                      themes={type === "interior" ? themes : exterior}
                     />
                   </div>
 

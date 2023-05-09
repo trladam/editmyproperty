@@ -10,6 +10,10 @@ module.exports = {
       screens: {
         xs: "330px",
       },
+      colors: {
+        active: "#427dff",
+        inactive: "#d1d5db"
+      }
     },
   },
   plugins: [require("@tailwindcss/forms"), require("@headlessui/tailwindcss")],

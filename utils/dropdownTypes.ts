@@ -36,7 +36,7 @@ export type roomType =
 export const rooms: roomType[] = [
   // "Living Room",
   // "Dining Room",
-  // "Office",
+  "Office",
   // "Bedroom",
   // "Bathroom",
   // "Basement",
@@ -45,3 +45,6 @@ export const rooms: roomType[] = [
   // "Outdoor Patio",
   "Retail unit",
 ];
+
+export type exteriorType = "High Street" | "Shopping Centre";
+export const exterior: exteriorType[] = ["High Street", "Shopping Centre"];

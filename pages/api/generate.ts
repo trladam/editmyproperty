@@ -2,7 +2,13 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "./auth/[...nextauth]";
 import prisma from "../../lib/prismadb";
-import { roomType, rooms, themeType } from "../../utils/dropdownTypes";
+import {
+  roomType,
+  rooms,
+  themeType,
+  exterior,
+  exteriorType,
+} from "../../utils/dropdownTypes";
 
 export type GenerateResponseData = {
   original: string | null;
@@ -72,6 +78,11 @@ export default async function handler(
     ) {
       prompt = `high resolution photography of a ${room.toLowerCase()} interior with wooden floor, beige blue salmon pastel, sun light, contrast, realistic artstation concept art, hyperdetailed, ultradetail, cinematic 8k, architectural rendering , unreal engine 5, rtx, volumetric light, cozy atmosphere,`;
     }
+
+    if (room === "Retail unit" && exterior.includes(theme as exteriorType)) {
+      prompt = `high resolution photography of a ${theme}, modern glazing, english high street, concrete tiled pavement flooring, beige blue salmon pastel, sun light, contrast, realistic artstation concept art, hyperdetailed, ultradetail, cinematic 8k, architectural rendering , unreal engine 5, rtx, volumetric light`;
+    }
+    console.log("propmpt", prompt);
 
     let startResponse = await fetch(
       "https://api.replicate.com/v1/predictions",

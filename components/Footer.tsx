@@ -14,7 +14,7 @@ export default function Footer() {
         </a>
       </div>
       <div className="flex flex-col space-x-4 pb-4 sm:pb-0 justify-between items-center">
-        <div>Trusted by the leading property consultancies in the UK:</div>
+        <div>The Requirement List is trusted by the leading property consultancies in the UK:</div>
         <img src="/logos.png" alt="" style={{ maxWidth: 200 }} />
       </div>
     </footer>
