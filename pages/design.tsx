@@ -209,16 +209,19 @@ const Home: NextPage = () => {
             </span>{" "}
             left.{" "}
             {data.remainingGenerations < 2 && (
-              <span>
-                Buy more credits{" "}
-                <Link
-                  href="/signup"
-                  className="font-semibold text-black-300 underline underline-offset-2 hover:text-black-200 transition"
-                >
-                  here
-                </Link>
-                .
+              <span className="text-red-600">
+                Don't worry you're a pre-launch VIP and have unlimited credits
               </span>
+              // <span>
+              //   Buy more credits{" "}
+              //   <Link
+              //     href="/signup"
+              //     className="font-semibold text-black-300 underline underline-offset-2 hover:text-black-200 transition"
+              //   >
+              //     here
+              //   </Link>
+              //   .
+              // </span>
             )}
           </p>
         )}
