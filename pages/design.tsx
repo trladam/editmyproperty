@@ -425,6 +425,17 @@ const Home: NextPage = () => {
                     Generate New Room
                   </button>
                 )}
+                {restoredLoaded && !loading && !error && (
+                  <button
+                    onClick={() => {
+                      console.log("g");
+                      originalPhoto && generatePhoto(originalPhoto);
+                    }}
+                    className="bg-white rounded-full text-black border font-medium px-4 py-2 mt-8 hover:bg-gray-100 transition"
+                  >
+                    Generate again
+                  </button>
+                )}
                 {restoredLoaded && (
                   <button
                     onClick={() => {
