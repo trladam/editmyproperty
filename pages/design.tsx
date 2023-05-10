@@ -422,7 +422,7 @@ const Home: NextPage = () => {
                     }}
                     className="bg-blue-500 rounded-full text-white font-medium px-4 py-2 mt-8 hover:bg-blue-500/80 transition"
                   >
-                    Generate New Room
+                    Generate New image
                   </button>
                 )}
                 {restoredLoaded && !loading && !error && (
@@ -431,9 +431,9 @@ const Home: NextPage = () => {
                       console.log("g");
                       originalPhoto && generatePhoto(originalPhoto);
                     }}
-                    className="bg-white rounded-full text-black border font-medium px-4 py-2 mt-8 hover:bg-gray-100 transition"
+                    className="bg-[#F89735] rounded-full text-black border font-medium px-4 py-2 mt-8 hover:bg-gray-100 transition"
                   >
-                    Generate again
+                    Generate this theme again
                   </button>
                 )}
                 {restoredLoaded && (
@@ -446,7 +446,7 @@ const Home: NextPage = () => {
                     }}
                     className="bg-white rounded-full text-black border font-medium px-4 py-2 mt-8 hover:bg-gray-100 transition"
                   >
-                    Download Generated Room
+                    Download image
                   </button>
                 )}
               </div>
