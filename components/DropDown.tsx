@@ -4,7 +4,7 @@ import {
   ChevronDownIcon,
   ChevronUpIcon,
 } from "@heroicons/react/20/solid";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { roomType, themeType, exteriorType } from "../utils/dropdownTypes";
 
 function classNames(...classes: string[]) {
@@ -13,11 +13,17 @@ function classNames(...classes: string[]) {
 
 interface DropDownProps {
   theme: themeType | roomType | exteriorType;
-  setTheme: (theme: themeType | roomType | exteriorType) => void;
-  themes: themeType[] | roomType[] | exteriorType[];
+  setTheme: (
+    theme: themeType | roomType | exteriorType | string | string[]
+  ) => void;
+  themes: themeType[] | roomType[] | exteriorType[] | string[];
 }
 
 export default function DropDown({ theme, setTheme, themes }: DropDownProps) {
+  useEffect(() => {
+    setTheme(themes[0]);
+  }, [themes]);
+
   return (
     <Menu as="div" className="relative block text-left">
       <div>

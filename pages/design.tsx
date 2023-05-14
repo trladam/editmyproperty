@@ -47,7 +47,10 @@ const Home: NextPage = () => {
   const [theme, setTheme] = useState<themeType>("Modern");
   const [room, setRoom] = useState<roomType>(rooms[0]);
   const [type, setType] = useState<string>("interior");
-  console.log("type", type);
+
+  const [roomListType, setRoomListType] = useState<string[]>([]);
+  const [themesListType, setThemesListType] = useState<string[]>([]);
+
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, mutate } = useSWR("/api/remaining", fetcher);
   const { data: session, status } = useSession();
@@ -124,6 +127,106 @@ const Home: NextPage = () => {
   }
 
   const router = useRouter();
+
+  // const dropDownData = {
+  //   interior: [
+  //     {
+  //       value: "Office",
+  //       data: [
+  //         "Modern",
+  //         "Minimalist",
+  //         "Professional",
+  //         "Industrial",
+  //         "Neoclassic",
+  //       ],
+  //     },
+  //     {
+  //       value: "Retail unit",
+  //       data: [
+  //         "Minimalist white coffee shop",
+  //         "Minimalist white salon",
+  //         "Minimalist white restaurant",
+  //         "Modern",
+  //         "Minimalist",
+  //         "Professional",
+  //         "Industrial",
+  //         "Neoclassic",
+  //       ],
+  //     },
+  //   ],
+  //   exterior: [
+  //     {
+  //       value: "Retail unit",
+  //       data: [
+  //         "Minimalist white coffee shop",
+  //         "Minimalist white salon",
+  //         "Minimalist white restaurant",
+  //         "Modern",
+  //         "Minimalist",
+  //         "Professional",
+  //         "Industrial",
+  //         "Neoclassic",
+  //       ],
+  //     },
+  //   ],
+  // };
+
+  const setTypeTheme = () => {
+    if (type.toLowerCase() === "interior") {
+      setRoomListType(["Retail unit", "Office"]);
+    }
+    if (type.toLowerCase() === "exterior") {
+      setRoomListType(["Retail unit"]);
+    }
+  };
+
+  const setRoomType = () => {
+    if(!room) return;
+    if (
+      type.toLowerCase() === "interior" &&
+      room.toLowerCase() === "office"
+    ) {
+      setThemesListType([
+        "Modern",
+        "Minimalist",
+        "Professional",
+        "Industrial",
+        "Neoclassic",
+      ]);
+    }
+    if (
+      type.toLowerCase() === "interior" &&
+      
+      room.toLowerCase() === "retail unit"
+    ) {
+      setThemesListType([
+        "Minimalist white coffee shop",
+        "Minimalist white salon",
+        "Minimalist white restaurant",
+        "Modern",
+        "Minimalist",
+        "Professional",
+        "Industrial",
+        "Neoclassic",
+      ]);
+    }
+  };
+
+  useEffect(() => {
+    setTypeTheme();
+  }, [type]);
+
+  useEffect(() => {
+    setRoomType();
+  }, [room]);
+
+  useEffect(() => {
+    setTypeTheme();
+  }, []);
+
+  console.log("theme-->", theme);
+  console.log("room", room);
+  console.log("type", type);
 
   const Type = ({ type }: { type: string }) => {
     const interiorBGColor = type === "interior" ? "bg-active" : "bg-inactive";
@@ -208,10 +311,14 @@ const Home: NextPage = () => {
               {data?.remainingGenerations > 1 ? "credits" : "credit"}
             </span>{" "}
             left.{" "}
+            <span className="text-red-600">
+              Don't worry you're a pre-launch VIP and have unlimited credits
+            </span>
             {data.remainingGenerations < 2 && (
-              <span className="text-red-600">
-                Don't worry you're a pre-launch VIP and have unlimited credits
-              </span>
+              <></>
+              // <span className="text-red-600">
+              //   Don't worry you're a pre-launch VIP and have unlimited credits
+              // </span>
               // <span>
               //   Buy more credits{" "}
               //   <Link
@@ -283,7 +390,7 @@ const Home: NextPage = () => {
                       theme={room}
                       // @ts-ignore
                       setTheme={(newRoom) => setRoom(newRoom)}
-                      themes={rooms}
+                      themes={roomListType}
                     />
                   </div>
                   <div className="space-y-4 w-full max-w-sm">
@@ -302,7 +409,7 @@ const Home: NextPage = () => {
                       theme={theme}
                       // @ts-ignore
                       setTheme={(newTheme) => setTheme(newTheme)}
-                      themes={type === "interior" ? themes : exterior}
+                      themes={themesListType}
                     />
                   </div>
 

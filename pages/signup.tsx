@@ -63,7 +63,7 @@ export default function Pricing() {
           <div className="w-1/2 sm:mt-0 border p-14 rounded-xl">
             <h3 className="mb-1 font-medium text-lg">Edit my Property Pro</h3>
             <h2 className="text-4xl font-bold my-5">£199 per year</h2>
-            <Link
+            <Link target="_blank"
               className="flex  items-center justify-center space-x-2 rounded-lg border border-blue-600 text-white px-5 py-2 text-sm shadow-md hover:bg-blue-400 bg-blue-600 font-medium transition"
               href="https://buy.stripe.com/8wM3gfgFo4Q74ak000"
             >
@@ -87,7 +87,7 @@ export default function Pricing() {
               Edit my Property for Teams
             </h3>
             <h2 className="text-4xl font-bold my-5">£1,499 per year</h2>
-            <Link
+            <Link target="_blank"
               className="flex  items-center justify-center space-x-2 rounded-lg border border-blue-600 text-white px-5 py-2 text-sm shadow-md hover:bg-blue-400 bg-blue-600 font-medium transition"
               href="https://buy.stripe.com/8wMg3174ObevcGQ8wx"
             >
