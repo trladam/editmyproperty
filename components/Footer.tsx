@@ -8,11 +8,7 @@ export default function Footer() {
     <footer className="text-center h-16 sm:h-20 w-full sm:pt-2 pt-4 border-t mt-5 flex sm:flex-row flex-col justify-between items-center px-3 space-y-3 sm:mb-0 mb-3 border-gray-500">
       {/* <Sidetab
         id="some"
-        opacity={100}
         iframeProps="title=ai tool"
-        buttonColor="#0445AF"
-        buttonText="Try me!"
-        medium="snippet"
       /> */}
       <div className="text-black-500">
         Built by the team behind{" "}

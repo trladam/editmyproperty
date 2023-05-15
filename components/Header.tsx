@@ -40,6 +40,14 @@ export default function Header({
               New
             </div>
           </Link>
+
+          <Link
+            href="https://gmtcj4wbrcz.typeform.com/to/uMiopxAx" target="_blank"
+            className="text-red-500 border-r border-gray-300 pr-4 flex space-x-2 hover:text-blue-400 transition"
+          >
+            <div>Feedback</div>
+          </Link>
+
           {photo ? (
             <Image
               alt="Profile picture"
