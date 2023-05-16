@@ -76,13 +76,16 @@ export default async function handler(
         "Minimalist white restaurant",
       ].includes(theme)
     ) {
-      prompt = `high resolution photography of a ${room.toLowerCase()} interior with wooden floor, beige blue salmon pastel, sun light, contrast, realistic artstation concept art, hyperdetailed, ultradetail, cinematic 8k, architectural rendering , unreal engine 5, rtx, volumetric light, cozy atmosphere,`;
+      prompt = `high resolution photography of a ${theme.toLowerCase()} interior with wooden floor, beige blue salmon pastel, sun light, contrast, realistic artstation concept art, hyperdetailed, ultradetail, cinematic 8k, architectural rendering , unreal engine 5, rtx, volumetric light, cozy atmosphere,`;
     }
 
     if (room === "Retail unit" && exterior.includes(theme as exteriorType)) {
       prompt = `high resolution photography of a ${theme}, modern glazing, english high street, concrete tiled pavement flooring, beige blue salmon pastel, sun light, contrast, realistic artstation concept art, hyperdetailed, ultradetail, cinematic 8k, architectural rendering , unreal engine 5, rtx, volumetric light`;
     }
+    console.log("----", room, theme,"---");
     console.log("propmpt", prompt);
+
+    // return;
 
     let startResponse = await fetch(
       "https://api.replicate.com/v1/predictions",

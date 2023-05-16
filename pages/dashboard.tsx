@@ -72,6 +72,7 @@ export async function getServerSideProps(ctx: any) {
       updatedAt: true,
       inputImage: true,
       outputImage: true,
+      prompt: true,
     },
   });
 
