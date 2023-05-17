@@ -210,15 +210,26 @@ const Home: NextPage = () => {
         "Neoclassic",
       ]);
     }
+    if (
+      type.toLowerCase() === "exterior" &&
+      
+      room.toLowerCase() === "retail unit"
+    ) {
+      setThemesListType([
+        "High street",
+        "Shopping centre",
+      ]);
+    }
   };
 
   useEffect(() => {
+
     setTypeTheme();
   }, [type]);
 
   useEffect(() => {
     setRoomType();
-  }, [room]);
+  }, [room, roomListType]);
 
   useEffect(() => {
     setTypeTheme();
