@@ -181,11 +181,8 @@ const Home: NextPage = () => {
   };
 
   const setRoomType = () => {
-    if(!room) return;
-    if (
-      type.toLowerCase() === "interior" &&
-      room.toLowerCase() === "office"
-    ) {
+    if (!room) return;
+    if (type.toLowerCase() === "interior" && room.toLowerCase() === "office") {
       setThemesListType([
         "Modern",
         "Minimalist",
@@ -196,13 +193,13 @@ const Home: NextPage = () => {
     }
     if (
       type.toLowerCase() === "interior" &&
-      
       room.toLowerCase() === "retail unit"
     ) {
       setThemesListType([
         "Minimalist white coffee shop",
         "Minimalist white salon",
         "Minimalist white restaurant",
+        "Yoga studio",
         "Modern",
         "Minimalist",
         "Professional",
@@ -212,18 +209,13 @@ const Home: NextPage = () => {
     }
     if (
       type.toLowerCase() === "exterior" &&
-      
       room.toLowerCase() === "retail unit"
     ) {
-      setThemesListType([
-        "High street",
-        "Shopping centre",
-      ]);
+      setThemesListType(["High street", "Shopping centre"]);
     }
   };
 
   useEffect(() => {
-
     setTypeTheme();
   }, [type]);
 
@@ -444,7 +436,7 @@ const Home: NextPage = () => {
                   <div className="h-[250px] flex flex-col items-center space-y-6 max-w-[670px] -mt-8">
                     <div className="max-w-xl text-black-300">
                       Sign in below to create a free account and redesign your
-                      room today. You will get 3 generations for free.
+                      room today.
                     </div>
                     <button
                       onClick={() => signIn("google")}
