@@ -48,3 +48,28 @@ export const rooms: roomType[] = [
 
 export type exteriorType = "High Street" | "Shopping Centre";
 export const exterior: exteriorType[] = ["High Street", "Shopping Centre"];
+
+const types = {
+  Interior: {
+    "Retail unit": [
+      "Minimalist white coffee shop",
+      "Minimalist white salon",
+      "Minimalist white restaurant",
+      "Modern",
+      "Minimalist",
+      "Professional",
+      "Industrial",
+      "Neoclassic",
+    ],
+    Office: [
+      "Modern",
+      "Minimalist",
+      "Professional",
+      "Industrial",
+      "Neoclassic",
+    ],
+  },
+  Exterior: {
+    "Retail unit": ["High Street", "Shopping Centre", "California style"],
+  },
+};

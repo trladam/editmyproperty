@@ -211,7 +211,7 @@ const Home: NextPage = () => {
       type.toLowerCase() === "exterior" &&
       room.toLowerCase() === "retail unit"
     ) {
-      setThemesListType(["High street", "Shopping centre"]);
+      setThemesListType(["High street", "Shopping centre", "California Style"]);
     }
   };
 

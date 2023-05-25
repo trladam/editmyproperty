@@ -83,6 +83,11 @@ export default async function handler(
     if (room === "Retail unit" && exterior.includes(theme as exteriorType)) {
       prompt = `high resolution photography of a ${theme}, modern glazing, english high street, concrete tiled pavement flooring, beige blue salmon pastel, sun light, contrast, realistic artstation concept art, hyperdetailed, ultradetail, cinematic 8k, architectural rendering , unreal engine 5, rtx, volumetric light`;
     }
+
+    if (room === "Retail unit" && theme.toLowerCase() === "california style") {
+      prompt = `Eye - Level Shot of a California contemporary style shop surrounded by clean pavement, symmetrical, exquisite contemporary luxury, trees, reflections, white, wood, lush, sunshine, sun - rays, highly detailed, photorealistic, Sony Alpha a7 III camera with a Sony FE 24 - 105mm f/ 4 G OSS lens, UHD, 8k --style raw --s 750 --q 2 --v 5.1--`;
+    }
+
     console.log("----", room, theme, "---");
     console.log("propmpt", prompt);
 
