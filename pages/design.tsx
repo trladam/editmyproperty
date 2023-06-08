@@ -196,9 +196,9 @@ const Home: NextPage = () => {
       room.toLowerCase() === "retail unit"
     ) {
       setThemesListType([
-        "Minimalist white coffee shop",
-        "Minimalist white salon",
-        "Minimalist white restaurant",
+        "Minimalist coffee shop",
+        "Minimalist salon",
+        "Minimalist restaurant",
         "Yoga studio",
         "Modern",
         "Minimalist",

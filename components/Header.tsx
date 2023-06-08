@@ -26,7 +26,8 @@ export default function Header({
             <div>Dashboard</div>
           </Link>
           <Link
-            href="/design"
+            href=""
+            onClick={() => (window.location.href = "/design")}
             className="border-r border-gray-300 pr-4 flex space-x-2 hover:text-blue-400 transition"
           >
             <div>Design</div>
@@ -42,7 +43,8 @@ export default function Header({
           </Link>
 
           <Link
-            href="https://gmtcj4wbrcz.typeform.com/to/uMiopxAx" target="_blank"
+            href="https://gmtcj4wbrcz.typeform.com/to/uMiopxAx"
+            target="_blank"
             className="text-red-500 border-r border-gray-300 pr-4 flex space-x-2 hover:text-blue-400 transition"
           >
             <div>Feedback</div>

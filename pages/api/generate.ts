@@ -71,9 +71,9 @@ export default async function handler(
     if (
       room === "Retail unit" &&
       [
-        "Minimalist white coffee shop",
-        "Minimalist white salon",
-        "Minimalist white restaurant",
+        "Minimalist coffee shop",
+        "Minimalist salon",
+        "Minimalist restaurant",
         "Yoga studio",
       ].includes(theme)
     ) {
