@@ -72,7 +72,7 @@ export default async function handler(
       room === "Retail unit" &&
       [
         "Minimalist coffee shop",
-        "Minimalist salon",
+        "Minimalist hair salon",
         "Minimalist restaurant",
         "Yoga studio",
       ].includes(theme)
