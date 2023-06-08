@@ -197,7 +197,7 @@ const Home: NextPage = () => {
     ) {
       setThemesListType([
         "Minimalist coffee shop",
-        "Minimalist salon",
+        "Minimalist hair salon",
         "Minimalist restaurant",
         "Yoga studio",
         "Modern",
