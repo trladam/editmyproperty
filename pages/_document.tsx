@@ -1,4 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 class MyDocument extends Document {
   render() {
@@ -24,6 +25,15 @@ class MyDocument extends Document {
         <body className="text-black">
           <Main />
           <NextScript />
+          <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
+          <noscript>
+            {/* eslint-disable @next/next/no-img-element */}
+            <img
+              src="https://queue.simpleanalyticscdn.com/noscript.gif"
+              alt=""
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </noscript>
         </body>
       </Html>
     );
