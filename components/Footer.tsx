@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Sidetab } from "@typeform/embed-react";
 import { createRef } from "react";
+// @ts-ignore
+import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
 
 export default function Footer() {
   const sidetabRef = createRef();
@@ -27,6 +29,11 @@ export default function Footer() {
         </div>
         <img src="/logos.png" alt="" style={{ maxWidth: 200 }} />
       </div>
+
+      <TawkMessengerReact
+        propertyId="649051de94cf5d49dc5e99cd"
+        widgetId="1h39rvjn7"
+      />
     </footer>
   );
 }

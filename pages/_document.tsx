@@ -1,7 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import Script from "next/script";
-// @ts-ignore
-import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
 
 class MyDocument extends Document {
   render() {
@@ -36,11 +34,6 @@ class MyDocument extends Document {
               referrerPolicy="no-referrer-when-downgrade"
             />
           </noscript>
-
-          <TawkMessengerReact
-            propertyId="649051de94cf5d49dc5e99cd"
-            widgetId="1h39rvjn7"
-          />
         </body>
       </Html>
     );
