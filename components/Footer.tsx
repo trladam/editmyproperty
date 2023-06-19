@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Sidetab } from "@typeform/embed-react";
+import Script from "next/script";
 import { createRef } from "react";
 // @ts-ignore
 import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
@@ -34,6 +35,16 @@ export default function Footer() {
         propertyId="649051de94cf5d49dc5e99cd"
         widgetId="1h39rvjn7"
       />
+
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
+      <noscript>
+        {/* eslint-disable @next/next/no-img-element */}
+        <img
+          src="https://queue.simpleanalyticscdn.com/noscript.gif"
+          alt=""
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </noscript>
     </footer>
   );
 }
