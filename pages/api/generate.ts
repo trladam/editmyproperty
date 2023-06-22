@@ -87,6 +87,9 @@ export default async function handler(
     if (room === "Retail unit" && theme.toLowerCase() === "california style") {
       prompt = `Eye - Level Shot of a California contemporary style shop surrounded by clean pavement, symmetrical, exquisite contemporary luxury, trees, reflections, white, wood, lush, sunshine, sun - rays, highly detailed, photorealistic, Sony Alpha a7 III camera with a Sony FE 24 - 105mm f/ 4 G OSS lens, UHD, 8k --style raw --s 750 --q 2 --v 5.1--`;
     }
+    if (room === "Retail unit" && theme.toLowerCase() === "high street") {
+      prompt = `high resolution photography of a shop exterior, modern glazing, english high street, concrete tiled pavement flooring, beige blue salmon pastel, sun light, contrast, realistic artstation concept art, hyperdetailed, ultradetail, cinematic 8k, architectural rendering , unreal engine 5, rtx, volumetric light`;
+    }
 
     console.log("----", room, theme, "---");
     console.log("propmpt", prompt);
@@ -109,7 +112,7 @@ export default async function handler(
             structure: "hough",
             prompt: prompt,
             scale: 9,
-            a_prompt: "a cheerful modernist bedroom",
+            a_prompt: "best quality, extremly detailed",
             //"best quality, photo from Pinterest, interior, cinematic photo, ultra-detailed, ultra-realistic, award-winning, interior design, natural lighting",
             n_prompt:
               "longbody, lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality",
@@ -117,6 +120,8 @@ export default async function handler(
         }),
       }
     );
+
+    console.log("startResponse", startResponse);
 
     let jsonStartResponse = await startResponse.json();
 
