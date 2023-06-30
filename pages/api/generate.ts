@@ -45,9 +45,10 @@ export default async function handler(
   });
 
   // Check if user has any credits left
-  // if (user?.credits === 0) {
-  //   return res.status(400).json(`You have no generations left`);
-  // }
+  console.log("user", user);
+  if (user?.credits && user.credits <= -20) {
+    return res.status(400).json(`You have no generations left`);
+  }
 
   // If they have credits, decrease their credits by one and continue
   await prisma.user.update({
