@@ -302,6 +302,7 @@ const Home: NextPage = () => {
           // </a>
           <></>
         )} */}
+
         <h1 className="mx-auto max-w-4xl font-display text-4xl font-bold tracking-normal text-slate-100 sm:text-6xl mb-5">
           Generate your room
         </h1>
@@ -318,6 +319,45 @@ const Home: NextPage = () => {
               Don't worry you're a pre-launch VIP and have unlimited credits
             </span>
           </p>
+        )}
+
+        {status === "unauthenticated" && (
+          <ResizablePanel>
+            <AnimatePresence mode="wait">
+              <motion.div className="flex justify-between items-center w-full flex-col mt-4">
+                <div className="h-[250px] flex flex-col items-center space-y-6 max-w-[670px] -mt-8">
+                  <div className="max-w-xl text-black-300">
+                    Sign in below to create a free account and redesign your
+                    room today.
+                  </div>
+                  <button
+                    onClick={() => signIn("google")}
+                    className="bg-gray-200 text-black font-semibold py-3 px-6 rounded-2xl flex items-center space-x-2"
+                  >
+                    <Image
+                      src="/google.png"
+                      width={20}
+                      height={20}
+                      alt="google's logo"
+                    />
+                    <span>Sign in with Google</span>
+                  </button>
+                  <button
+                    onClick={() => signIn("linkedin")}
+                    className="bg-gray-200 text-black font-semibold py-3 px-6 rounded-2xl flex items-center space-x-2"
+                  >
+                    <Image
+                      src="/linkedin.png"
+                      width={20}
+                      height={20}
+                      alt="google's logo"
+                    />
+                    <span>Sign in with LinkedIn</span>
+                  </button>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </ResizablePanel>
         )}
 
         {data && data.remainingGenerations > -20 && (
@@ -453,6 +493,7 @@ const Home: NextPage = () => {
                     </div>
                   )
                 )}
+
                 {originalPhoto && !restoredImage && (
                   <Image
                     alt="original photo"
