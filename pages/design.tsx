@@ -173,7 +173,17 @@ const Home: NextPage = () => {
 
   const setTypeTheme = () => {
     if (type.toLowerCase() === "interior") {
-      setRoomListType(["Retail unit", "Office"]);
+      setRoomListType([
+        "Retail unit",
+        "Office",
+        "Living Room",
+        "Dining Room",
+        "Bedroom",
+        "Bathroom",
+        "Kitchen",
+        "Garden",
+        "Gaming Room",
+      ]);
     }
     if (type.toLowerCase() === "exterior") {
       setRoomListType(["Retail unit"]);
@@ -182,7 +192,7 @@ const Home: NextPage = () => {
 
   const setRoomType = () => {
     if (!room) return;
-    if (type.toLowerCase() === "interior" && room.toLowerCase() === "office") {
+    if (type.toLowerCase() === "interior" && room.toLowerCase() !== "retail unit") {
       setThemesListType([
         "Modern",
         "Minimalist",
@@ -213,6 +223,18 @@ const Home: NextPage = () => {
     ) {
       setThemesListType(["High street", "Shopping centre", "California Style"]);
     }
+    // if (type.toLowerCase() === "interior" && room.toLowerCase() === "rooms") {
+    //   setThemesListType([
+    //     "Living Room",
+    //     "Dining Room",
+    //     "Bedroom",
+    //     "Bathroom",
+    //     "Kitchen",
+    //     "Office",
+    //     "Garden",
+    //     "Gaming Room",
+    //   ]);
+    // }
   };
 
   useEffect(() => {
@@ -360,6 +382,7 @@ const Home: NextPage = () => {
           </ResizablePanel>
         )}
 
+        {/* {data && data.remainingGenerations > -20 && ( */}
         {data && data.remainingGenerations > -20 && (
           <ResizablePanel>
             <AnimatePresence mode="wait">
