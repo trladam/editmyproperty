@@ -192,7 +192,10 @@ const Home: NextPage = () => {
 
   const setRoomType = () => {
     if (!room) return;
-    if (type.toLowerCase() === "interior" && room.toLowerCase() !== "retail unit") {
+    if (
+      type.toLowerCase() === "interior" &&
+      room.toLowerCase() !== "retail unit"
+    ) {
       setThemesListType([
         "Modern",
         "Minimalist",
@@ -626,7 +629,7 @@ const Home: NextPage = () => {
 
         {data && data.remainingGenerations < -20 && (
           <>
-            <span>Too many generations.</span>
+            <span>Too many generations</span>
           </>
         )}
 
